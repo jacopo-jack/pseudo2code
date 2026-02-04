@@ -10,7 +10,8 @@ void form(){
     printf(" --------\n");
 }
 
-/* Funzione per pulire lo schermo */
+/* Funzione per pulire lo schermo 
+   clear screen function*/
 void clrscr(){
     #ifdef _WIN32
         system("cls");
@@ -19,7 +20,8 @@ void clrscr(){
     #endif
 }
 
-/* Funzione per pulire lo schermo in vice */
+/* Funzione per pulire lo schermo in vice  commentare la prima funzione clrsscr() affinché funzioni su VICE.
+   Clear screen function in vice. Comment clrscrc() first function in order to work on VICE*/
     void clrscr();
 /* Funzione per calcolare se una persona è maggiorenne */
 void eta(){
