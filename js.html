@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: black;
+        }
+        .container {
+            background-color: gray;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .menu-preview {
+            background: #f8f9fa;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        output {
+            display: block;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            background: #fff;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Esercizi</h1>
+        <div class="menu-preview">
+            <p class="menu-preview">Input possibili <br/>
+            1 Eta | 2  Cicli | 3  Logica | 4  Dizionari | 5  Liste
+            </p>
+        </div>
+        <input type="text" id="scelta">
+        <input type="button" value="scegli Esercizi" id="esercizi" onclick="scelta()">
+        <output id="risultato">
+            <p id="Eta" style="display: none;">Esercizio Età avviato...</p>
+            <input type="text" id="eta" style="display: none;">
+             <input type="button" value="Eta" id="Eta_btn" style="display: none;" onclick="maggiorenne()">
+             <p id="Cicli" style="display: none;">Cicli non ancora presente..</p>
+        </output>
+    </div>
+
+<script>
+function scelta(){
+    // Recupero il valore del campo di testo, non l'elemento bottone
+    let inputScelta = document.getElementById("scelta").value;
+    let result = document.getElementById("risultato");
+    if(inputScelta == ""){
+        // insertAdjacentHTML è un metodo: servono le parentesi e la posizione ('beforeend')
+        result.insertAdjacentHTML('beforeend', '<p>Campo vuoto non valido: inserire scelta </p>');
+    } else if(inputScelta == "eta" || inputScelta == "Eta") {
+        eta();
+    }
+    if(inputScelta == "cicli" || inputScelta == "Cicli"){
+        cicli();
+    }
+}
+
+function eta(){
+    // mostra la shell per l'esercizio 
+    let result = document.getElementById("risultato");
+    let header = document.getElementById("Eta");
+    let button = document.getElementById("Eta_btn");
+    let input  = document.getElementById("eta");
+    header.style.display = "block";
+    input.style.display ="block";
+    button.style.display = "block";    
+}
+// logica esercizio eta
+function maggiorenne(){
+    let eta = document.getElementById("eta").value;
+    let result = document.getElementById("risultato");
+
+    // RESET OUTPUT PRECEDENTE
+    result.innerHTML = "";
+
+    eta = parseInt(eta);
+
+    if (isNaN(eta) || eta <= 0){
+        result.insertAdjacentHTML('beforeend', '<p>Non sei ancora nato!<br>ritenta</p>');
+    } else if (eta < 18){
+        result.insertAdjacentHTML('beforeend', '<p>Minorenne!</p>');
+    } else {
+        result.insertAdjacentHTML('beforeend', '<p>Maggiorenne!</p>');
+    }
+}   
+function cicli(){
+    // Qui proseguirai tu con la logica
+    let header = document.getElementById("Cicli");
+    header.style.display = "block";
+    
+}
+// main come in c è l'inizio del programma
+function main(){
+    
+}
+main();
+</script>
+</body>
+</html>
